@@ -25,3 +25,12 @@ scripts included in this repository.
 These results represent the specific CognoDB Cloud configuration and
 workloads tested in this experiment. They should not be interpreted as
 universal performance characteristics.
+## Results Analysis
+
+Detailed interpretation of the results is available in:
+
+`results/analysis.md`
+
+The complete benchmark report is available in:
+
+`REPORT.md`
