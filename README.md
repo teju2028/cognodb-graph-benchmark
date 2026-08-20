@@ -1,36 +1,26 @@
-## Current CognoDB Results
+# CognoDB Cloud Graph Database Benchmark
 
-The benchmark was executed against CognoDB Cloud using the workload
-scripts included in this repository.
+## Overview
 
-| Workload | Dataset Size | Time | Result |
-|---|---:|---:|---|
-| Graph creation | 1,000 nodes | 6.5196 s | SUCCESS |
-| Node lookup | 1,000 nodes | 0.2729 s | SUCCESS |
-| 5-hop traversal | 1,000 nodes | 0.2667 s | SUCCESS |
-| Graph creation | 5,000 nodes | TIMEOUT | FAILED |
-| Graph creation | 10,000 nodes | TIMEOUT | FAILED |
-| 100 single-node lookups | 1,000 nodes | 26.3167 s total | SUCCESS |
+This project benchmarks CognoDB Cloud using reproducible graph database workloads.
 
-### Observations
+The goal is to measure graph creation, node lookup, graph traversal, and repeated single-node lookup performance at different dataset sizes.
 
-- The 1,000-node graph creation test completed successfully.
-- Node lookup completed successfully for 1,000 nodes.
-- The 5-hop traversal completed successfully for 1,000 nodes.
-- Graph creation at 5,000 nodes exceeded the database execution deadline.
-- Graph creation at 10,000 nodes also exceeded the database execution deadline.
-- All 100 single-node lookup queries completed successfully.
-- Failed and timed-out tests are retained in the results CSV.
+## Environment
 
-These results represent the specific CognoDB Cloud configuration and
-workloads tested in this experiment. They should not be interpreted as
-universal performance characteristics.
-## Results Analysis
+- Database: CognoDB Cloud
+- Driver: Neo4j Python Driver
+- Language: Python
+- Operating System: Windows
+- Dataset sizes: 1,000, 5,000 and 10,000 nodes
 
-Detailed interpretation of the results is available in:
+## Benchmark Workloads
 
-`results/analysis.md`
+### 1. Graph Creation
 
-The complete benchmark report is available in:
+Creates `BenchmarkNode` nodes and connects consecutive nodes using `NEXT` relationships.
 
-`REPORT.md`
+Example:
+
+```text
+Node 1 -> Node 2 -> Node 3 -> ... -> Node N
